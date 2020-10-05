@@ -41,7 +41,7 @@ public class Main {
         Query q = em.createQuery("select t from User t");
         List<User> pollList = q.getResultList();
         for (User p : pollList) {
-            System.out.println(p.getId() + " " + p.getName() + " " + p.getEmail());
+            System.out.println(p.toString());
         }
         Query q2 = em.createQuery("select v from Vote v");
         List<Vote> voteList = q2.getResultList();
@@ -56,9 +56,8 @@ public class Main {
 	public static User createUser() {
         User user = new User();
         user.setAdmin(true);
-        user.setEmail("kjetil@gmail.com");
+        user.setMail("kjetil@gmail.com");
         user.setName("Kjetil");
-        user.setPhoneNumber("123");
         return user;
     }
 	

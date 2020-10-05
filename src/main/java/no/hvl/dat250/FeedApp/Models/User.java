@@ -32,7 +32,7 @@ public class User {
 	@Column(name = "mail")
 	private String mail;
 
-	// Json value is admin
+	
 	@Column(name = "is_admin")
 	private boolean isAdmin;
 
