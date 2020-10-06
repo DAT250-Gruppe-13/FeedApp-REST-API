@@ -16,42 +16,40 @@ import org.springframework.web.server.ResponseStatusException;
 import no.hvl.dat250.FeedApp.Models.Poll;
 import no.hvl.dat250.FeedApp.Service.PollService;
 
-
-
 @RestController
 public class PollController {
 
-	  @Autowired
-	    private PollService pollService;
+	@Autowired
+	private PollService pollService;
 
-	    @GetMapping("/polls")
-	    List<Poll> getPolls() {
-	        return pollService.readAllPolls();
-	    }
+	@GetMapping("/polls")
+	List<Poll> getPolls() {
+		return pollService.readAllPolls();
+	}
 
-	    @GetMapping("/polls/{id}")
-	    Poll getPoll(@PathVariable(name = "id") int id) {
-	        return pollService.readPoll(id);
-	    }
+	@GetMapping("/polls/{id}")
+	Poll getPoll(@PathVariable(name = "id") int id) {
+		return pollService.readPoll(id);
+	}
 
-	    @DeleteMapping("/polls/{id}")
-	    void deletePoll(@PathVariable(name = "id") int id) {
-	        pollService.deletePoll(id);
-	    }
+	@DeleteMapping("/polls/{id}")
+	void deletePoll(@PathVariable(name = "id") int id) {
+		pollService.deletePoll(id);
+	}
 
-	    @PostMapping("/polls")
-	    Poll postPoll(@RequestBody Poll poll) {
-	        boolean success = pollService.createPoll(poll);
-	        if (!success) {
-	            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
-	        }
-	        return poll;
-	    }
+	@PostMapping("/polls")
+	Poll postPoll(@RequestBody Poll poll) {
+		boolean success = pollService.createPoll(poll);
+		if (!success) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+		}
+		return poll;
+	}
 
-	    @PutMapping("/polls")
-	    Poll putPoll(@RequestBody Poll poll) {
-	        pollService.updatePoll(poll);
-	        return poll;
-	    }
-    
+	@PutMapping("/polls")
+	Poll putPoll(@RequestBody Poll poll) {
+		pollService.updatePoll(poll);
+		return poll;
+	}
+
 }

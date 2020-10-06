@@ -32,22 +32,17 @@ public class VotingService {
     public Vote readVote(int id) {
         return voteDAO.read(id);
     }
-    /*
+    
     public boolean addVoteToPoll(Vote vote) {
         User user = userDAO.read(vote.getUser().getId());
         Poll poll = pollDAO.read(vote.getPoll().getId());
         if (user == null || poll == null) {
             return false;
         }
-        if (vote.isYes()) {
-            poll.setCountYes(poll.getCountYes() + 1);
-        } else {
-            poll.setCountNo(poll.getCountNo() + 1);
-        }
         vote.setUser(user);
         vote.setPoll(poll);
         voteDAO.create(vote);
         return true;
     }
-    */
+    
 }

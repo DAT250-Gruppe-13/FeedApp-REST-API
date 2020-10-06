@@ -12,6 +12,7 @@ import no.hvl.dat250.FeedApp.Models.User;
 
 @Service
 public class PollService {
+	
     @Autowired
     private PollDAO pollDAO;
 
